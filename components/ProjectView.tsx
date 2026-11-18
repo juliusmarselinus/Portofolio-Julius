@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { useReveal } from '@/lib/useReveal'
 import { TLink } from '@/components/Transition'
 import ProjectMockup from '@/components/ProjectMockup'
+import AmbientBackground from '@/components/AmbientBackground'
 import { projectsData, STUDENT_INFO, ProjectData } from '@/lib/data'
 
 export default function ProjectView({ slug }: { slug: string }) {
@@ -18,9 +19,7 @@ export default function ProjectView({ slug }: { slug: string }) {
 
   return (
     <main ref={root} className="relative z-10 min-h-screen bg-white himsi-grid-bg">
-      {/* Background ambient pastel glows */}
-      <div className="pointer-events-none fixed -top-40 -left-40 h-[600px] w-[600px] rounded-full himsi-glow-blue -z-10" />
-      <div className="pointer-events-none fixed top-1/2 -right-40 h-[650px] w-[650px] rounded-full himsi-glow-orange -z-10" />
+      <AmbientBackground />
 
       {/* =========================================================================
           PROJECT DETAIL HERO
@@ -31,7 +30,7 @@ export default function ProjectView({ slug }: { slug: string }) {
           <div className="mb-6">
             <TLink
               href="/#projects"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/90 px-4 py-1.5 text-xs font-semibold text-slate-600 shadow-2xs backdrop-blur-md transition-colors hover:border-[#254a87] hover:text-[#254a87]"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/95 px-4 py-1.5 text-xs font-semibold text-slate-600 shadow-2xs backdrop-blur-md transition-colors hover:border-[#254a87] hover:text-[#254a87]"
             >
               <span>←</span>
               <span>Kembali ke Daftar Proyek</span>
@@ -51,7 +50,7 @@ export default function ProjectView({ slug }: { slug: string }) {
             </p>
           </div>
 
-          {/* Hero Showcase with Mockup & Floating Badges (Matching Image 3) */}
+          {/* Hero Showcase with Mockup & Floating Badges */}
           <div className="mt-12 relative">
             {/* Center Mockup */}
             <div className="relative z-10 mx-auto max-w-3xl">
@@ -97,7 +96,7 @@ export default function ProjectView({ slug }: { slug: string }) {
             </div>
           </div>
 
-          {/* Primary Action Button (Big Orange Button) */}
+          {/* Primary Action Button: Kunjungi Live Demo */}
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
             <a
               href={project.liveUrl}
@@ -125,9 +124,9 @@ export default function ProjectView({ slug }: { slug: string }) {
       </section>
 
       {/* =========================================================================
-          STRUCTURED CASE STUDY (Lorem Ipsum Details as requested)
+          STRUCTURED CASE STUDY
          ========================================================================= */}
-      <section className="relative px-6 py-20 md:px-12 lg:px-20 bg-white/80 border-t border-slate-200/80">
+      <section className="relative px-6 py-20 md:px-12 lg:px-20 bg-white/90 border-t border-slate-200/80">
         <div className="mx-auto max-w-4xl space-y-16">
           {/* Section 1: Ringkasan Proyek */}
           <div>
@@ -139,9 +138,6 @@ export default function ProjectView({ slug }: { slug: string }) {
             </h2>
             <div className="mt-4 space-y-3 text-base leading-relaxed text-slate-600">
               <p>{project.loremOverview}</p>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
             </div>
           </div>
 

@@ -11,9 +11,9 @@ export default function SmoothScroll() {
     gsap.registerPlugin(ScrollTrigger)
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
     })
 
     lenis.on('scroll', () => {
@@ -22,16 +22,8 @@ export default function SmoothScroll() {
       ScrollTrigger.update()
     })
 
-    let skew = 0
-    const tick = (t: number) => {
-      lenis.raf(t * 1000)
-      scroll.velocity = lenis.velocity
-
-      const target = gsap.utils.clamp(-3.5, 3.5, lenis.velocity * 0.08)
-      skew += (target - skew) * 0.1
-      if (Math.abs(skew) > 0.005 || target !== 0) {
-        gsap.set('.skew-v', { skewY: skew })
-      }
+    const tick = (time: number) => {
+      lenis.raf(time * 1000)
     }
 
     gsap.ticker.add(tick)
