@@ -42,7 +42,7 @@ export default function Preloader() {
   return (
     <div
       ref={root}
-      className="fixed inset-0 z-[110] flex flex-col justify-between bg-white p-6 md:p-12 shadow-2xl"
+      className="fixed inset-0 z-[110] flex flex-col justify-between bg-[#f6f4ee] p-6 md:p-12 shadow-2xl"
     >
       <div className="flex items-center justify-between text-xs font-bold tracking-widest text-slate-500">
         <span className="flex items-center gap-2">

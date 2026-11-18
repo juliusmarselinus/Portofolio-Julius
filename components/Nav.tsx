@@ -18,8 +18,8 @@ export default function Nav() {
   return (
     <header className="fixed top-5 inset-x-0 z-50 px-4 md:px-8 pointer-events-none transition-all">
       <div
-        className={`pointer-events-auto mx-auto flex max-w-4xl items-center justify-between rounded-full bg-white/85 px-6 py-2.5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-200/80 backdrop-blur-xl transition-all duration-300 ${
-          scrolled ? 'shadow-[0_12px_36px_rgb(0,0,0,0.09)] border-slate-300' : ''
+        className={`pointer-events-auto mx-auto flex max-w-4xl items-center justify-between rounded-full bg-[#fbf9f4]/90 px-6 py-2.5 shadow-[0_8px_30px_rgba(40,30,20,0.06)] border border-[#e8e2d4] backdrop-blur-xl transition-all duration-300 ${
+          scrolled ? 'shadow-[0_12px_36px_rgba(40,30,20,0.09)] border-[#ddd6c8]' : ''
         }`}
       >
         {/* Brand / Logo */}
@@ -28,10 +28,10 @@ export default function Nav() {
             <span className="text-xs font-bold font-mono">SI</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-xs font-bold leading-tight tracking-tight text-[#17243a] group-hover:text-[#254a87] transition-colors">
+            <span className="text-xs font-bold leading-tight tracking-tight text-[#1c1917] group-hover:text-[#254a87] transition-colors">
               PORTFOLIO
             </span>
-            <span className="text-[10px] text-slate-400 font-medium leading-none">
+            <span className="text-[10px] text-stone-400 font-medium leading-none">
               Sistem Informasi UMN
             </span>
           </div>

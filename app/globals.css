@@ -7,43 +7,44 @@
   --color-himsi-orange-hover: #db3f1a;
   --color-himsi-light-blue: #eaf0fa;
   --color-himsi-soft-orange: #fff0e9;
-  --color-himsi-surface: #f8fafc;
-  --color-himsi-border: #e2e8f0;
-  --color-himsi-navy: #17243a;
+  --color-himsi-surface: #f9f7f1;
+  --color-himsi-border: #e6dfd3;
+  --color-himsi-navy: #1c1917;
 }
 
 :root {
   --himsi-blue: #254a87;
   --himsi-orange: #f4512a;
-  --himsi-navy: #17243a;
+  --himsi-navy: #1c1917;
 }
 
 html {
-  background-color: #ffffff;
-  color: #17243a;
+  background-color: #f6f4ee;
+  color: #1c1917;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #ffffff;
-  color: #17243a;
+  background-color: #f6f4ee;
+  color: #1c1917;
   overflow-x: hidden;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Modern Architectural Dot Matrix Background */
+/* Warm Aesthetic Dot Matrix Background */
 .himsi-grid-bg {
+  background-color: #f6f4ee;
   background-size: 28px 28px;
-  background-image: radial-gradient(circle, rgba(37, 74, 135, 0.07) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(120, 100, 75, 0.09) 1px, transparent 1px);
 }
 
 /* Subtle ambient pastel glow shapes */
 .himsi-glow-blue {
-  background: radial-gradient(circle, rgba(234, 240, 250, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(234, 240, 250, 0.7) 0%, rgba(246, 244, 238, 0) 70%);
 }
 
 .himsi-glow-orange {
-  background: radial-gradient(circle, rgba(255, 240, 233, 0.75) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 237, 224, 0.7) 0%, rgba(246, 244, 238, 0) 70%);
 }
 
 /* Custom scrollbar */
@@ -51,10 +52,10 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #f6f4ee;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #d6cec2;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {

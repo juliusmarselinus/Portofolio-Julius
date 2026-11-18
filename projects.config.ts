@@ -20,8 +20,9 @@ export interface ProjectItem {
   year: string            // Tahun pembuatan (contoh: '2026')
   role: string            // Peran kamu (contoh: 'Full-stack Developer', 'Frontend Engineer')
   team: string            // Nama tim / pengembang
-  liveUrl: string         // >>> MASUKKAN LINK WEBSITE AKTIF KAMU DI SINI <<<
+  liveUrl: string        
   githubUrl?: string      // Link repository GitHub (opsional)
+  previewImage?: string   // Path screenshot di folder public (opsional, contoh: '/dapurtwin-preview.jpg')
   tags: string[]          // Tech stack (contoh: ['Next.js', 'TypeScript', 'Tailwind CSS'])
   description: string     // Ringkasan singkat untuk kartu di halaman utama
   overview: string        // Penjelasan detail untuk halaman studi kasus
@@ -124,6 +125,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     // GANTI LINK DI BAWAH INI DENGAN LINK WEB ISFEST UMN KAMU:
     liveUrl: 'https://isfestumn.my.id',
     githubUrl: 'https://github.com/isfestival2026/Isfest',
+    previewImage: '/isfestumn-preview.jpg',
     tags: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PostgreSQL'],
     description: 'Website festival resmi HIMSI UMN yang menaungi registrasi multi-kompetisi nasional, seminar teknologi, dan portal administrasi panitia.',
     overview: 'ISFEST UMN adalah portal utama festival tahunan program studi Sistem Informasi Universitas Multimedia Nusantara yang melayani ribuan peserta dari berbagai universitas di Indonesia.',
@@ -160,6 +162,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     // GANTI LINK DI BAWAH INI DENGAN LINK WEB DAPUR TWIN KAMU:
     liveUrl: 'https://dapurtwin.vercel.app/',
     githubUrl: 'https://github.com/juliusmarselinus/gtnich',
+    previewImage: '/dapurtwin-preview.jpg',
     tags: ['React', 'Next.js', 'Tailwind CSS', 'JavaScript', 'WhatsApp API'],
     description: 'Platform pemesanan kuliner dan katering modern dengan katalog menu interaktif, filter varian rasa, dan kalkulator pesanan otomatis.',
     overview: 'Dapur Twin memodernisasi pemesanan menu katering rumahan menjadi platform digital yang ramah pengguna dengan alur transaksi instan tanpa mengharuskan registrasi rumit.',

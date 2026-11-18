@@ -25,13 +25,14 @@ export interface ProjectData {
   features: { title: string; desc: string }[]
   techHighlights: string[]
   metrics?: { label: string; value: string }[]
+  previewImage?: string
 }
 
 const colorMap: Record<string, { accent: string; bg: string }> = {
-  gate: { accent: '#254a87', bg: 'from-blue-50/70 via-slate-50 to-indigo-50/40' },
-  bridegu: { accent: '#254a87', bg: 'from-sky-50/70 via-white to-blue-50/50' },
-  isfestumn: { accent: '#f4512a', bg: 'from-orange-50/60 via-white to-amber-50/40' },
-  dapurtwin: { accent: '#f4512a', bg: 'from-rose-50/60 via-white to-orange-50/40' },
+  gate: { accent: '#254a87', bg: 'from-blue-50/60 via-[#f9f7f2] to-indigo-50/40' },
+  bridegu: { accent: '#254a87', bg: 'from-sky-50/60 via-[#f9f7f2] to-blue-50/40' },
+  isfestumn: { accent: '#f4512a', bg: 'from-amber-50/70 via-[#f9f7f2] to-orange-50/40' },
+  dapurtwin: { accent: '#f4512a', bg: 'from-orange-50/60 via-[#f9f7f2] to-amber-50/40' },
 }
 
 export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
@@ -58,6 +59,7 @@ export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
     features: p.features.map((f) => ({ title: f.title, desc: f.description })),
     techHighlights: p.tags.map((t) => `Implementasi arsitektur sistem berbasis ${t}`),
     metrics: p.metrics,
+    previewImage: p.previewImage,
   }
 })
 
