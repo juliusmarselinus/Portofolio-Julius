@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-himsi-blue: #254a87;
+  --color-himsi-blue-hover: #1e3d70;
+  --color-himsi-orange: #f4512a;
+  --color-himsi-orange-hover: #db3f1a;
+  --color-himsi-light-blue: #eaf0fa;
+  --color-himsi-soft-orange: #fff0e9;
+  --color-himsi-surface: #f8fafc;
+  --color-himsi-border: #e2e8f0;
+  --color-himsi-navy: #17243a;
+}
+
+:root {
+  --himsi-blue: #254a87;
+  --himsi-orange: #f4512a;
+  --himsi-navy: #17243a;
+}
+
+html {
+  background-color: #ffffff;
+  color: #17243a;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #17243a;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Modern Architectural Dot Matrix Background */
+.himsi-grid-bg {
+  background-size: 28px 28px;
+  background-image: radial-gradient(circle, rgba(37, 74, 135, 0.07) 1px, transparent 1px);
+}
+
+/* Subtle ambient pastel glow shapes */
+.himsi-glow-blue {
+  background: radial-gradient(circle, rgba(234, 240, 250, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.himsi-glow-orange {
+  background: radial-gradient(circle, rgba(255, 240, 233, 0.75) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #254a87;
+}
