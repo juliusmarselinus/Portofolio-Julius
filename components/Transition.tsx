@@ -78,7 +78,7 @@ export function TransitionProvider({ children }: { children: React.ReactNode }) 
         <div className="flex flex-col items-center gap-3">
           <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-[#17243a]">
             <span className="h-2 w-2 rounded-full bg-[#f4512a]" />
-            <span>PORTFOLIO MAHASISWA SI</span>
+            <span>JULIUS MARSELINUS · PORTFOLIO</span>
           </div>
           <div
             ref={line}

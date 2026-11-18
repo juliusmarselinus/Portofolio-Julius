@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Shell from '@/components/Shell'
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Web Developer & Frontend Engineer',
-  description: 'Portofolio web modern dengan Next.js, Three.js, GSAP animation, dan arsitektur responsif. Siap untuk kesempatan magang.',
+  title: 'Julius Marselinus | Software & Data Portfolio',
+  description: 'Portofolio personal Julius Marselinus — Software Engineering, Data Visualization, Machine Learning & Deep Learning, serta Data Modeling.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

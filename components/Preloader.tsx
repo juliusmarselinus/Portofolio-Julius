@@ -47,9 +47,9 @@ export default function Preloader() {
       <div className="flex items-center justify-between text-xs font-bold tracking-widest text-slate-500">
         <span className="flex items-center gap-2">
           <span className="h-2 w-2 animate-pulse rounded-full bg-[#f4512a]" />
-          PORTOFOLIO MAHASISWA
+          JULIUS MARSELINUS
         </span>
-        <span className="text-[#254a87] font-semibold">SISTEM INFORMASI UMN</span>
+        <span className="text-[#254a87] font-semibold">SOFTWARE & DATA PORTFOLIO</span>
       </div>
 
       <div className="flex flex-col items-end">

@@ -29,10 +29,10 @@ export interface ProjectData {
 }
 
 const colorMap: Record<string, { accent: string; bg: string }> = {
-  gate: { accent: '#254a87', bg: 'from-blue-50/60 via-[#f9f7f2] to-indigo-50/40' },
-  bridegu: { accent: '#254a87', bg: 'from-sky-50/60 via-[#f9f7f2] to-blue-50/40' },
-  isfestumn: { accent: '#f4512a', bg: 'from-amber-50/70 via-[#f9f7f2] to-orange-50/40' },
   dapurtwin: { accent: '#f4512a', bg: 'from-orange-50/60 via-[#f9f7f2] to-amber-50/40' },
+  isfestumn: { accent: '#254a87', bg: 'from-blue-50/60 via-[#f9f7f2] to-indigo-50/40' },
+  bridegu: { accent: '#0284c7', bg: 'from-sky-50/60 via-[#f9f7f2] to-blue-50/40' },
+  gate: { accent: '#254a87', bg: 'from-blue-50/60 via-[#f9f7f2] to-slate-50/40' },
 }
 
 export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
@@ -42,7 +42,7 @@ export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
     title: `${p.title} – ${p.subtitle}`,
     shortTitle: p.title,
     category: p.category,
-    author: 'Sistem Informasi UMN',
+    author: 'Julius Marselinus',
     team: p.team,
     role: p.role,
     year: p.year,

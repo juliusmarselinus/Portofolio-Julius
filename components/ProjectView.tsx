@@ -5,6 +5,7 @@ import { useReveal } from '@/lib/useReveal'
 import { TLink } from '@/components/Transition'
 import ProjectMockup from '@/components/ProjectMockup'
 import AmbientBackground from '@/components/AmbientBackground'
+import Magnetic from '@/components/Magnetic'
 import { projectsData, STUDENT_INFO, ProjectData } from '@/lib/data'
 
 export default function ProjectView({ slug }: { slug: string }) {
@@ -26,98 +27,118 @@ export default function ProjectView({ slug }: { slug: string }) {
          ========================================================================= */}
       <section className="relative px-6 pt-32 pb-16 md:px-12 lg:px-20">
         <div className="mx-auto max-w-5xl">
-          {/* Back button */}
-          <div className="mb-6">
+          {/* Breadcrumbs / Back button */}
+          <div className="mb-8 flex items-center justify-between">
             <TLink
               href="/#projects"
-              className="inline-flex items-center gap-2 rounded-full border border-[#ded7ca] bg-[#fffdfa]/95 px-4 py-1.5 text-xs font-semibold text-stone-600 shadow-2xs backdrop-blur-md transition-colors hover:border-[#254a87] hover:text-[#254a87]"
+              className="group inline-flex items-center gap-2 rounded-full border border-[#ded7ca] bg-[#fffdfa]/95 px-4 py-2 text-xs font-semibold text-stone-600 shadow-2xs backdrop-blur-md transition-all hover:border-[#254a87] hover:text-[#254a87] hover:-translate-x-0.5"
             >
-              <span>←</span>
+              <svg className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
               <span>Kembali ke Daftar Proyek</span>
             </TLink>
+
+            <span className="font-mono text-xs text-stone-400">
+              PROYEK 0{i + 1} / 0{projectsData.length}
+            </span>
           </div>
 
-          {/* Title & Description */}
+          {/* Title & Header */}
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-3">
-              {project.category} · {project.year}
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-4 py-1.5 rounded-full mb-4 shadow-2xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#254a87]" />
+              <span>{project.category}</span>
+              <span className="text-stone-300">·</span>
+              <span className="font-mono text-stone-500">{project.year}</span>
             </div>
-            <h1 className="text-3xl font-extrabold tracking-tight text-[#1c1917] sm:text-5xl leading-tight">
+            <h1 className="text-3xl font-extrabold tracking-tight text-[#1c1917] sm:text-5xl lg:text-6xl leading-[1.12]">
               {project.title}
             </h1>
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-stone-600">
+            <p className="mt-5 text-base sm:text-lg leading-relaxed text-stone-600">
               {project.desc}
             </p>
+
+            {/* Author & Specs Pill */}
+            <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-4 text-xs text-stone-500">
+              <div className="flex items-center gap-1.5">
+                <span className="text-stone-400">Tim Pengembang:</span>
+                <span className="font-bold text-[#1c1917]">{project.team}</span>
+              </div>
+              <span className="text-stone-300">·</span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-stone-400">Peran:</span>
+                <span className="font-semibold text-[#254a87]">{project.role}</span>
+              </div>
+            </div>
           </div>
 
-          {/* Hero Showcase with Mockup & Floating Badges */}
-          <div className="mt-12 relative">
-            {/* Center Mockup */}
-            <div className="relative z-10 mx-auto max-w-3xl">
+          {/* Hero Showcase with Browser Mockup (Unobstructed & Clean) */}
+          <div className="mt-12">
+            <div className="mx-auto max-w-4xl">
               <ProjectMockup project={project} size="lg" />
             </div>
 
-            {/* Floating Element 1: Top Left Tech Badge */}
-            <div className="hidden sm:flex absolute -top-4 -left-6 z-20 items-center gap-2.5 rounded-2xl border border-[#e6dfd3] bg-[#fffdfa]/95 px-4 py-3 shadow-lg backdrop-blur-md">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eaf0fa] text-xs font-mono font-bold text-[#254a87]">
-                &lt;/&gt;
-              </div>
-              <div>
-                <div className="text-xs font-bold text-[#1c1917]">{project.stackPrimary}</div>
-                <div className="text-[10px] text-stone-400">Web Architecture</div>
-              </div>
-            </div>
-
-            {/* Floating Element 2: Bottom Left Spec Note */}
-            <div className="hidden sm:block absolute -bottom-6 -left-6 z-20 -rotate-2 rounded-xl border border-[#ded7ca] bg-[#fffdfa] px-4 py-3 shadow-lg">
-              <div className="text-xs font-bold text-[#1c1917] leading-tight">
-                {project.shortTitle}
-              </div>
-              <div className="text-[11px] text-[#254a87] font-semibold mt-0.5">
-                Sistem Informasi UMN
-              </div>
-            </div>
-
-            {/* Floating Element 3: Bottom Right Spec Card */}
-            <div className="hidden sm:block absolute -bottom-6 -right-6 z-20 rounded-2xl border border-[#e6dfd3] bg-[#fffdfa]/95 p-4 shadow-lg backdrop-blur-md min-w-[210px]">
-              <div className="text-xs font-bold text-[#1c1917] border-b border-[#eee8dc] pb-1.5 mb-2">
-                Spesifikasi Sistem
-              </div>
-              <div className="space-y-1.5 text-[11px]">
-                <div>
-                  <span className="text-stone-400 block text-[9px] uppercase">Tim Pengembang</span>
-                  <span className="font-semibold text-[#254a87]">{project.team}</span>
+            {/* Clean System Metadata Bar (Below Mockup, Zero Image Obstruction) */}
+            <div className="mt-6 mx-auto max-w-4xl grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-4 shadow-2xs">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">Tim Pengembang</div>
+                <div className="mt-1 text-xs font-bold text-[#1c1917] truncate" title={project.team}>
+                  {project.team}
                 </div>
-                <div>
-                  <span className="text-stone-400 block text-[9px] uppercase">Stack Utama</span>
-                  <span className="font-semibold text-[#f4512a]">{project.stackPrimary}</span>
+              </div>
+              <div className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-4 shadow-2xs">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">Peran Julius</div>
+                <div className="mt-1 text-xs font-bold text-[#254a87] truncate">
+                  {project.role}
+                </div>
+              </div>
+              <div className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-4 shadow-2xs">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">Stack Utama</div>
+                <div className="mt-1 text-xs font-bold text-stone-700 truncate">
+                  {project.stackPrimary}
+                </div>
+              </div>
+              <div className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-4 shadow-2xs">
+                <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">Status Deployment</div>
+                <div className="mt-1 flex items-center gap-1.5 text-xs font-bold text-emerald-700">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Production Live</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Primary Action Button: Kunjungi Live Demo */}
+          {/* Action Buttons: Kunjungi Web & GitHub Repo */}
           <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-2xl bg-[#f4512a] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-orange-500/25 transition-all hover:bg-[#db3f1a] hover:scale-105"
-            >
-              <span>Kunjungi Live Demo</span>
-              <span className="text-base">→</span>
-            </a>
-
-            {project.githubUrl && (
+            <Magnetic strength={0.25}>
               <a
-                href={project.githubUrl}
+                href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-2xl border border-[#ded7ca] bg-[#fffdfa] px-6 py-3.5 text-sm font-semibold text-stone-700 shadow-2xs transition-colors hover:bg-[#f6f2e8]"
+                className="inline-flex items-center gap-2.5 rounded-2xl bg-[#254a87] px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#254a87]/20 transition-all hover:bg-[#1e3d70] hover:scale-105"
               >
-                <span>Lihat Repository GitHub</span>
-                <span className="text-xs">↗</span>
+                <span>Kunjungi Website Langsung</span>
+                <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </a>
+            </Magnetic>
+
+            {project.githubUrl && (
+              <Magnetic strength={0.2}>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-2xl border border-[#ded7ca] bg-[#fffdfa] px-6 py-3.5 text-sm font-semibold text-stone-700 shadow-2xs transition-colors hover:bg-[#f6f2e8]"
+                >
+                  <span>Lihat Repository GitHub</span>
+                  <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </Magnetic>
             )}
           </div>
         </div>
@@ -129,115 +150,146 @@ export default function ProjectView({ slug }: { slug: string }) {
       <section className="relative px-6 py-20 md:px-12 lg:px-20 bg-[#f0ece1]/70 border-t border-[#e6dfd2]">
         <div className="mx-auto max-w-4xl space-y-16">
           {/* Section 1: Ringkasan Proyek */}
-          <div>
-            <div className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3 py-1 rounded-full mb-3">
+          <div className="rounded-3xl border border-[#e6dfd2] bg-[#fffdfa] p-8 sm:p-10 shadow-sm">
+            <div className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-3">
               DOKUMENTASI SISTEM
             </div>
             <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl">
               1. Ringkasan & Gambaran Umum Sistem
             </h2>
-            <div className="mt-4 space-y-3 text-base leading-relaxed text-stone-600">
+            <div className="mt-5 space-y-4 text-base leading-relaxed text-stone-600">
               <p>{project.loremOverview}</p>
             </div>
           </div>
 
-          {/* Section 2: Problem & Solution */}
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-6 shadow-2xs">
-              <div className="text-xs font-bold text-[#f4512a] uppercase tracking-wider mb-2">
-                Problem Statement
-              </div>
-              <h3 className="text-base font-bold text-[#1c1917] mb-2">Tantangan yang Dihadapi</h3>
-              <p className="text-sm leading-relaxed text-stone-600">
-                {project.loremProblem}
-              </p>
+          {/* Section 2: Problem & Solution Comparison Cards */}
+          <div>
+            <div className="mb-6">
+              <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-2">
+                ANALISIS REKAYASA
+              </span>
+              <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl">
+                Tantangan Riil & Solusi yang Diterapkan
+              </h2>
             </div>
 
-            <div className="rounded-2xl border border-[#e6ded2] bg-[#f7f5ed] p-6 shadow-2xs">
-              <div className="text-xs font-bold text-[#254a87] uppercase tracking-wider mb-2">
-                System Solution
+            <div className="grid gap-6 md:grid-cols-2">
+              {/* Problem Card */}
+              <div className="rounded-3xl border border-[#f5d0c5] bg-[#fef8f6] p-7 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#fde8e3] px-3 py-1 text-xs font-bold text-[#b91c1c] uppercase tracking-wider mb-4">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#b91c1c]" />
+                    <span>Problem Statement</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#1c1917] mb-3">Tantangan yang Dihadapi</h3>
+                  <p className="text-sm leading-relaxed text-stone-600">
+                    {project.loremProblem}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-[#1c1917] mb-2">Solusi Rekayasa yang Diterapkan</h3>
-              <p className="text-sm leading-relaxed text-stone-600">
-                {project.loremSolution}
-              </p>
+
+              {/* Solution Card */}
+              <div className="rounded-3xl border border-[#cbe0f8] bg-[#f4f8fd] p-7 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#e1edfa] px-3 py-1 text-xs font-bold text-[#254a87] uppercase tracking-wider mb-4">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#254a87]" />
+                    <span>Engineered Solution</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#1c1917] mb-3">Solusi Rekayasa yang Diterapkan</h3>
+                  <p className="text-sm leading-relaxed text-stone-600">
+                    {project.loremSolution}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Section 3: Fitur Utama */}
           <div>
-            <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl mb-6">
-              2. Fitur & Fungsionalitas Utama
-            </h2>
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="mb-6">
+              <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-2">
+                KAPABILITAS SISTEM
+              </span>
+              <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl">
+                2. Fitur & Fungsionalitas Utama
+              </h2>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-3">
               {project.features.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-5 shadow-2xs"
+                  className="rounded-3xl border border-[#e6ded2] bg-[#fffdfa] p-6 shadow-sm flex flex-col justify-between"
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eaf0fa] text-xs font-mono font-bold text-[#254a87] mb-3">
-                    0{idx + 1}
+                  <div>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#eaf0fa] text-xs font-mono font-bold text-[#254a87] mb-4">
+                      0{idx + 1}
+                    </div>
+                    <h4 className="text-base font-bold text-[#1c1917] mb-2">{feat.title}</h4>
+                    <p className="text-xs leading-relaxed text-stone-600">{feat.desc}</p>
                   </div>
-                  <h4 className="text-sm font-bold text-[#1c1917] mb-1.5">{feat.title}</h4>
-                  <p className="text-xs leading-relaxed text-stone-600">{feat.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Section 4: Spesifikasi Teknis */}
-          <div>
-            <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl mb-4">
+          <div className="rounded-3xl border border-[#e6ded2] bg-[#fffdfa] p-8 sm:p-10 shadow-sm">
+            <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-2">
+              ARSITEKTUR & STACK
+            </span>
+            <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl mb-3">
               3. Spesifikasi Teknis & Dependensi
             </h2>
             <p className="text-sm text-stone-500 mb-6">
-              Arsitektur aplikasi dan pustaka pendukung yang digunakan selama pengembangan:
+              Pustaka, framework, dan teknologi yang dirangkai untuk menjamin keandalan sistem:
             </p>
 
-            <div className="rounded-2xl border border-[#e6ded2] bg-[#fffdfa] p-6 shadow-2xs">
-              <div className="flex flex-wrap gap-2 pb-5 border-b border-[#eee8dc]">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-lg bg-[#eaf0fa] px-3 py-1.5 text-xs font-mono font-bold text-[#254a87]"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2 pb-6 border-b border-[#eee8dc]">
+              {project.stack.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-xl bg-[#f4efe5] px-3.5 py-1.5 text-xs font-mono font-bold text-stone-700"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
 
-              <div className="mt-5 space-y-2.5">
-                {project.techHighlights.map((hl, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-stone-600">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[#f4512a]" />
-                    <span>{hl}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-6 space-y-3">
+              {project.techHighlights.map((hl, idx) => (
+                <div key={idx} className="flex items-start gap-3 text-sm text-stone-600">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#254a87]" />
+                  <span>{hl}</span>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Direct Live Demo Callout Card */}
-          <div className="rounded-3xl border border-[#ded7ca] bg-gradient-to-r from-[#eaf0fa] to-[#fffdfa] p-8 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="rounded-3xl border border-[#ded7ca] bg-gradient-to-r from-[#eaf0fa] via-[#f7f5ef] to-[#fffdfa] p-8 sm:p-10 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <span className="text-xs font-bold text-[#254a87] uppercase tracking-wider">
-                Deployment Aktif
-              </span>
-              <h3 className="text-xl font-bold text-[#1c1917] mt-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#254a87] uppercase tracking-wider mb-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Live Deployment Aktif</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-[#1c1917]">
                 Ingin membuka langsung web {project.shortTitle}?
               </h3>
-              <p className="text-xs text-stone-500 mt-1 max-w-md">
-                Kunjungi website aktif untuk melihat alur sistem dan interaktivitas secara real-time.
+              <p className="text-xs sm:text-sm text-stone-600 mt-1.5 max-w-md">
+                Kunjungi website aktif untuk melihat alur sistem, interaktivitas, dan performanya secara real-time.
               </p>
             </div>
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-[#254a87] px-6 py-3 text-xs font-bold text-white shadow-md hover:bg-[#1e3d70] transition-colors"
+              className="shrink-0 inline-flex items-center gap-2 rounded-2xl bg-[#254a87] px-7 py-3.5 text-xs font-bold text-white shadow-md hover:bg-[#1e3d70] transition-colors"
             >
               <span>Kunjungi {project.shortTitle}</span>
-              <span>→</span>
+              <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </a>
           </div>
 
@@ -245,9 +297,12 @@ export default function ProjectView({ slug }: { slug: string }) {
           <div className="pt-8 border-t border-[#e2dcd0] flex flex-col sm:flex-row items-center justify-between gap-4">
             <TLink
               href="/#projects"
-              className="text-xs font-semibold text-stone-500 hover:text-[#254a87] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-stone-500 hover:text-[#254a87] transition-colors"
             >
-              ← Kembali ke Daftar Proyek
+              <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              <span>Kembali ke Daftar Proyek</span>
             </TLink>
 
             <TLink
@@ -255,7 +310,9 @@ export default function ProjectView({ slug }: { slug: string }) {
               className="inline-flex items-center gap-2 rounded-full border border-[#ded7ca] bg-[#fffdfa] px-5 py-2.5 text-xs font-bold text-[#1c1917] shadow-2xs hover:border-[#254a87] hover:text-[#254a87] transition-colors"
             >
               <span>Proyek Selanjutnya: {nextProject.shortTitle}</span>
-              <span>→</span>
+              <svg className="h-3.5 w-3.5 text-stone-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+              </svg>
             </TLink>
           </div>
         </div>
@@ -263,7 +320,7 @@ export default function ProjectView({ slug }: { slug: string }) {
 
       {/* Footer */}
       <footer className="px-6 py-8 text-center text-xs text-stone-500 bg-[#ede9de] border-t border-[#e2dcd0]">
-        <p>© 2026 {STUDENT_INFO.institution} · {STUDENT_INFO.major}</p>
+        <p>© 2026 Julius Marselinus · Built with Next.js & Tailwind CSS</p>
       </footer>
     </main>
   )

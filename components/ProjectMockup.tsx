@@ -18,26 +18,26 @@ export default function ProjectMockup({
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br ${project.mockupBg} p-4 sm:p-6 border border-[#e5ded2] transition-all duration-300`}
+      className={`relative w-full overflow-hidden rounded-2xl bg-gradient-to-br ${project.mockupBg} p-3.5 sm:p-5 border border-[#e5ded2] transition-all duration-300`}
     >
       {/* Sleek Minimalist Browser Window Frame */}
       <div
-        className={`relative w-full rounded-xl border border-[#eae3d6] bg-[#fffdf9] shadow-sm transition-all duration-300 ${
+        className={`relative w-full overflow-hidden rounded-xl border border-[#eae3d6] bg-[#fffdf9] shadow-sm transition-all duration-300 ${
           isLarge
-            ? 'shadow-[0_20px_45px_rgba(40,30,20,0.06)]'
+            ? 'shadow-[0_20px_45px_rgba(40,30,20,0.08)]'
             : 'group-hover:shadow-md group-hover:-translate-y-0.5'
         }`}
       >
         {/* Browser Header Bar */}
-        <div className="flex items-center justify-between border-b border-[#ece6db] bg-[#f5f1e8] px-3.5 py-2.5">
+        <div className="flex items-center justify-between border-b border-[#ece6db] bg-[#f5f1e8] px-3.5 py-2">
           {/* Traffic dots */}
           <div className="flex items-center gap-1.5 shrink-0">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f56]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
+            <span className="h-2 w-2 rounded-full bg-[#ff5f56]" />
+            <span className="h-2 w-2 rounded-full bg-[#ffbd2e]" />
+            <span className="h-2 w-2 rounded-full bg-[#27c93f]" />
           </div>
 
-          {/* URL Pill - Now dynamically displays actual project domain */}
+          {/* URL Pill */}
           <div className="flex items-center gap-1.5 rounded-full border border-[#ded7ca] bg-[#fffdfa] px-3 py-0.5 text-[10px] font-mono text-stone-600 shadow-2xs">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <span className="truncate max-w-[160px] sm:max-w-[220px]">
@@ -46,30 +46,30 @@ export default function ProjectMockup({
           </div>
 
           {/* Live indicator */}
-          <span className="font-mono text-[10px] font-semibold text-emerald-700 bg-emerald-50/90 border border-emerald-200/60 px-2 py-0.5 rounded shrink-0">
+          <span className="font-mono text-[9px] font-semibold text-emerald-700 bg-emerald-50/90 border border-emerald-200/60 px-2 py-0.5 rounded shrink-0">
             LIVE
           </span>
         </div>
 
-        {/* Body: Screenshot or Minimal Dashboard */}
+        {/* Body: Screenshot (Full Uncropped Natural Height) or Styled UI Dashboard */}
         {project.previewImage ? (
           <div className="relative w-full overflow-hidden bg-[#f7f5ee]">
             <Image
               src={project.previewImage}
               alt={`${project.shortTitle} preview`}
-              width={1024}
-              height={490}
-              className="w-full h-auto object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+              width={1200}
+              height={600}
+              className="w-full h-auto block object-contain object-top transition-transform duration-500 group-hover:scale-[1.01]"
               priority={isLarge}
             />
           </div>
         ) : (
-          <div className="bg-[#faf8f3] p-4 sm:p-5 min-h-[180px] sm:min-h-[220px] flex flex-col justify-between">
+          <div className="relative w-full min-h-[220px] sm:min-h-[260px] bg-[#faf8f3] p-4 sm:p-5 flex flex-col justify-between">
+            {/* Top Row: Brand & Status */}
             <div>
-              {/* Top Row: Brand & Status */}
               <div className="flex items-center justify-between border-b border-[#ece6dc] pb-3">
-                <div className="flex items-center gap-2">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#254a87] text-[10px] font-bold text-white shadow-xs">
+                <div className="flex items-center gap-2.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#254a87] text-xs font-bold text-white shadow-xs">
                     {project.shortTitle[0]}
                   </div>
                   <div>
@@ -127,8 +127,8 @@ export default function ProjectMockup({
             </div>
 
             {/* Footer of Preview */}
-            <div className="mt-3 flex items-center justify-between border-t border-[#ece6dc] pt-2 text-[10px] text-stone-400">
-              <span>{project.team}</span>
+            <div className="flex items-center justify-between border-t border-[#ece6dc] pt-2.5 text-[10px] text-stone-400">
+              <span className="font-medium text-stone-600">{project.team}</span>
               <span className="font-mono font-medium text-[#254a87]">
                 {project.stackPrimary}
               </span>

@@ -25,14 +25,14 @@ export default function Nav() {
         {/* Brand / Logo */}
         <TLink href="/" className="group flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#254a87] text-white shadow-xs transition-transform duration-300 group-hover:scale-105">
-            <span className="text-xs font-bold font-mono">SI</span>
+            <span className="text-xs font-bold font-mono tracking-tight">JM</span>
           </div>
           <div className="flex flex-col">
             <span className="text-xs font-bold leading-tight tracking-tight text-[#1c1917] group-hover:text-[#254a87] transition-colors">
-              PORTFOLIO
+              JULIUS MARSELINUS
             </span>
             <span className="text-[10px] text-stone-400 font-medium leading-none">
-              Sistem Informasi UMN
+              Software & Data Portfolio
             </span>
           </div>
         </TLink>
@@ -65,11 +65,11 @@ export default function Nav() {
           </a>
         </nav>
 
-        {/* Right Status & GitHub (ZERO emojis, ZERO magang mentions) */}
+        {/* Right Status & GitHub */}
         <div className="flex items-center gap-2.5">
-          <div className="hidden md:flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-medium text-slate-600">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#f4512a]" />
-            <span>Software Engineer</span>
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-[#ded7ca] bg-[#fffdfa] px-3.5 py-1 text-[11px] font-medium text-stone-600 shadow-2xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#254a87]" />
+            <span>Software & Data</span>
           </div>
 
           <a

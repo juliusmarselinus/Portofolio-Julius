@@ -1,206 +1,202 @@
 /**
  * =========================================================================
- * KONFIGURASI PROJEK & PORTOFOLIO (PROJECTS CONFIG)
+ * KONFIGURASI PROJEK & PORTOFOLIO - JULIUS MARSELINUS
  * =========================================================================
- * File ini adalah satu-satunya tempat untuk menambah, mengubah, atau mengisi
- * link website (Live URL), deskripsi, dan data projek kamu.
- * 
- * CARA PAKAI:
- * 1. Untuk mengisi link web: Cukup ubah nilai 'liveUrl' pada projek terkait.
- * 2. Untuk menambah projek baru: Cukup copy salah satu objek di bawah,
- *    lalu paste di dalam array 'PROJECTS_LIST'.
+ * File ini memuat 4 proyek riil yang telah dibangun dan diuji:
+ * 1. Dapur Twin (C:\gtnich)
+ * 2. ISFEST UMN (C:\Isfest)
+ * 3. BridgeU (C:\BridgeU)
+ * 4. GATE (C:\Kampus\Group 1 GATE - IS556 A - WDD - Code)
  * =========================================================================
  */
 
 export interface ProjectItem {
-  id: string              // Slug URL (contoh: 'gate', 'bridegu', dll - harus unik, huruf kecil tanpa spasi)
-  title: string           // Nama projek (contoh: 'GATE')
+  id: string              // Slug URL (huruf kecil tanpa spasi)
+  title: string           // Nama projek
   subtitle: string        // Tagline / Deskripsi singkat
-  category: string        // Kategori (contoh: 'Enterprise Platform', 'Web Application', 'E-Commerce')
-  year: string            // Tahun pembuatan (contoh: '2026')
-  role: string            // Peran kamu (contoh: 'Full-stack Developer', 'Frontend Engineer')
-  team: string            // Nama tim / pengembang
-  liveUrl: string        
-  githubUrl?: string      // Link repository GitHub (opsional)
-  previewImage?: string   // Path screenshot di folder public (opsional, contoh: '/dapurtwin-preview.jpg')
-  tags: string[]          // Tech stack (contoh: ['Next.js', 'TypeScript', 'Tailwind CSS'])
-  description: string     // Ringkasan singkat untuk kartu di halaman utama
-  overview: string        // Penjelasan detail untuk halaman studi kasus
-  problem: string         // Masalah yang diselesaikan
-  solution: string        // Solusi rekayasa yang diterapkan
-  features: {             // Fitur-fitur utama projek
+  category: string        // Kategori projek
+  year: string            // Tahun pembuatan
+  role: string            // Peran pengembang
+  team: string            // Tim / Pengembang
+  liveUrl: string         // Link Live URL aktif atau demo repo
+  githubUrl?: string      // Link repository GitHub
+  previewImage?: string   // Path screenshot di folder public
+  tags: string[]          // Tech stack & tools
+  description: string     // Ringkasan singkat kartu depan
+  overview: string        // Penjelasan komprehensif studi kasus
+  problem: string         // Masalah riil yang diselesaikan
+  solution: string        // Solusi arsitektur yang dibangun
+  features: {             // Fitur utama projek
     title: string
     description: string
   }[]
-  metrics?: {             // Metrik singkat tampilan mockup
+  metrics?: {             // Metrik ringkas tampilan mockup
     label: string
     value: string
   }[]
 }
 
 // =========================================================================
-// DAFTAR PROJEK (TAMBAH / UBAH PROJEK DI SINI)
+// DAFTAR PROJEK RIIL (Dapur Twin, ISFEST UMN, BridgeU, GATE)
 // =========================================================================
 export const PROJECTS_LIST: ProjectItem[] = [
   {
-    id: 'gate',
-    title: 'GATE',
-    subtitle: 'Smart Campus & Enterprise Access Management',
-    category: 'Enterprise Platform',
+    id: 'dapurtwin',
+    title: 'Dapur Twin',
+    subtitle: 'Kitchen Ops, POS & Automated HPP Management',
+    category: 'F&B Operations & POS Platform',
     year: '2026',
     role: 'Full-stack Developer',
-    team: 'GATE Core Team',
-    // GANTI LINK DI BAWAH INI DENGAN LINK WEB GATE KAMU:
-    liveUrl: 'https://gate.example.com',
-    githubUrl: 'https://github.com',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'REST API'],
-    description: 'Platform sistem verifikasi dan otorisasi akses terpadu dengan logging aktivitas real-time serta dashboard manajemen izin terpusat.',
-    overview: 'GATE dirancang untuk mengotomatisasi dan memvalidasi izin akses pada skala kampus dan enterprise. Sistem ini memproses verifikasi identitas secara cepat, mencatat log kedatangan secara real-time, dan menyediakan dashboard visual untuk pemantauan arus akses.',
-    problem: 'Pemeriksaan akses manual sering kali memicu antrean panjang, ketidaksinkronan data izin keluar-masuk, serta kesulitan dalam melacak riwayat kehadiran secara akurat.',
-    solution: 'Membangun arsitektur web berbasis Next.js dengan validasi token terenkripsi dan API terdistribusi yang mampu memvalidasi kredensial dalam hitungan milidetik.',
+    team: 'Julius Marselinus, Kevin Sakia, Audrey Imanuella',
+    liveUrl: 'https://dapurtwin.vercel.app/',
+    githubUrl: 'https://github.com/juliusmarselinus/gtnich',
+    previewImage: '/dapurtwin-preview.jpg',
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS', 'Supabase (PostgreSQL)', 'Recharts', 'Midtrans QRIS', 'Resend API'],
+    description: 'Sistem operasional dapur & POS kasir terpadu untuk UMKM kuliner: pemesanan mandiri via QR meja, pemotongan stok otomatis berbasis resep (BOM), kalkulator HPP instan, AI OCR scan nota, dan analitik penjualan.',
+    overview: 'Dapur Twin adalah platform operasional kuliner modern yang mengatasi ketidakpastian stok bahan baku, resep yang belum terstandarisasi, serta kesulitan menghitung margin dan HPP (Harga Pokok Penjualan) per porsi. Mengintegrasikan alur pemesanan mandiri pelanggan via QR meja dengan Kitchen Display System (KDS), kasir POS multi-channel, pemotongan stok otomatis dari resep gudang, serta maskot interaktif Dapi yang responsif terhadap data dapur secara real-time.',
+    problem: 'Pencatatan manual stok bahan dan pesanan meja rentan memicu selisih stok, pemborosan bahan baku (waste), ketidaktahuan margin profit aktual per porsi sajian, serta antrean pesanan yang terfragmentasi di kasir.',
+    solution: 'Membangun arsitektur web modern yang menghubungkan modul Self-Order QR meja dengan pembayaran QRIS Dinamis Midtrans, sinkronisasi antrean pesanan ke KDS dapur, engine konversi satuan takaran resep, pemindaian struk belanja pasar via AI OCR Vision, dan visualisasi tren penjualan Recharts.',
     features: [
       {
-        title: 'Verifikasi Akses Real-time',
-        description: 'Pemeriksaan kredensial dan izin masuk instan dengan respons server di bawah 25ms.'
+        title: 'Self-Order QR Meja & QRIS Dinamis',
+        description: 'Pelanggan memindai QR code di meja untuk membuka katalog menu interaktif dan membayar instan via QRIS Midtrans atau bayar di kasir dengan struk email otomatis via Resend.'
       },
       {
-        title: 'Dashboard Analitik Terpusat',
-        description: 'Visualisasi metrik volume akses harian, traffic jam sibuk, dan pelaporan otomatis.'
+        title: 'Kitchen Display System & Auto-BOM',
+        description: 'Papan antrean dapur real-time dengan indikator kesiapan bahan resep. Stok gudang otomatis terpotong saat pesanan selesai berdasarkan Bill of Materials (BOM).'
       },
       {
-        title: 'Otorisasi Multi-Role',
-        description: 'Hierarki izin bertingkat untuk Superadmin, Verifikator Lapangan, dan Pengguna umum.'
+        title: 'Kalkulator HPP, AI OCR & Laporan Recharts',
+        description: 'Penghitungan modal bahan dan margin profit secara live, digitalisasi nota belanja fisik pasar via AI OCR Vision, serta visualisasi data omzet dan performa menu interaktif.'
       }
     ],
     metrics: [
-      { label: 'Daily Logs', value: '3,420+' },
-      { label: 'Success Rate', value: '99.8%' },
-      { label: 'Avg Latency', value: '18 ms' }
+      { label: 'Inventory', value: 'Auto-BOM' },
+      { label: 'Ordering Flow', value: 'Zero-Queue QR' },
+      { label: 'Analytics', value: 'Live Recharts' }
+    ]
+  },
+  {
+    id: 'isfestumn',
+    title: 'ISFEST UMN',
+    subtitle: 'National Tech Festival, Multi-Competition & 3D Interactive Portal',
+    category: 'National Event Platform',
+    year: '2026',
+    role: 'Full-stack & 3D Web Engineer',
+    team: 'Julius Marselinus, Kevin Sakia',
+    liveUrl: 'https://isfestumn.my.id',
+    githubUrl: 'https://github.com/isfestival2026/Isfest',
+    previewImage: '/isfestumn-preview.jpg',
+    tags: ['Next.js 16', 'Three.js / React Three Fiber', 'TypeScript', 'Supabase (PostgreSQL)', 'AWS S3', 'Tailwind CSS'],
+    description: 'Portal resmi festival teknologi berskala nasional: platform registrasi multi-lomba (Data Competition & UI/UX), unggah berkas karya aman via AWS S3 Presigned URLs, sistem tiket seminar berbayar, dan maskot 3D interaktif.',
+    overview: 'ISFEST UMN adalah portal digital berskala besar yang menaungi rangkaian kompetisi teknologi nasional dan seminar dengan ribuan partisipan dari berbagai universitas di Indonesia. Dibangun dengan fokus pada keandalan upload data bervolume tinggi, visualisasi 3D Three.js interaktif, dashboard multi-role panitia, serta sinkronisasi data Google Sheets otomatis.',
+    problem: 'Pendaftaran massal dengan berkas perlombaan berukuran besar rawan gagal kirim jika diproses langsung lewat server reguler, disertai kebutuhan verifikasi bertingkat panitia (LO & BPH), serta sistem check-in dan tiket doorprize seminar secara realtime.',
+    solution: 'Menerapkan arsitektur upload terdistribusi via AWS S3 Signed URLs langsung dari browser peserta, sistem dashboard administrasi multi-role (BPH, LO, Akademik, Regis, Vault kas/denda), database realtime Supabase, integrasi visual 3D Three.js, dan sinkronisasi Google Sheets.',
+    features: [
+      {
+        title: 'Arena Lomba & AWS S3 Direct Upload',
+        description: 'Portal submission karya Data Competition dan UI/UX Design dengan URL unggah terenkripsi langsung ke AWS S3 bucket secara aman dan cepat.'
+      },
+      {
+        title: 'Dashboard Administrasi Multi-Role',
+        description: 'Panel terpadu untuk verifikasi tim peserta oleh LO, validasi pembayaran, pencatatan kas/denda divisi (Vault), dan rekapitulasi data dinamis.'
+      },
+      {
+        title: 'Visual 3D Three.js & Seminar Engine',
+        description: 'Pengalaman interaktif 3D menggunakan React Three Fiber, sistem ticketing seminar dinamis, check-in kehadiran peserta, dan kupon undian doorprize.'
+      }
+    ],
+    metrics: [
+      { label: 'Storage', value: 'AWS S3 Direct' },
+      { label: 'Visual', value: 'Three.js 3D' },
+      { label: 'Multi-Role', value: 'Granular RBAC' }
     ]
   },
   {
     id: 'bridegu',
     title: 'BridgeU',
     subtitle: 'University & Industry Collaboration Platform',
-    category: 'Collaboration Platform',
+    category: 'Collaboration & Talent Ecosystem',
     year: '2026',
-    role: 'Lead Frontend Developer',
-    team: 'Tim Lotus Biru',
-    // GANTI LINK DI BAWAH INI DENGAN LINK WEB BRIDGEU KAMU:
+    role: 'Full-stack & Frontend Engineer',
+    team: 'Julius Marselinus, Kevin Sakia, Audrey Imanuella',
     liveUrl: 'https://bridgeu.vercel.app/',
     githubUrl: 'https://github.com/juliusmarselinus/BridgeU',
-    tags: ['Next.js', 'React', 'PostgreSQL', 'Tailwind CSS', 'Supabase'],
-    description: 'Platform kolaboratif yang menjembatani mahasiswa dengan industri melalui studi kasus nyata, penelitian terapan, dan proyek bersama.',
-    overview: 'BridgeU menyediakan wadah digital interaktif bagi mahasiswa dan institusi industri untuk berkolaborasi dalam pemecahan masalah bisnis riil dan penelitian inovatif.',
-    problem: 'Mahasiswa kerap kesulitan memperoleh pengalaman proyek industri terverifikasi, sementara mitra perusahaan memerlukan saluran terpercaya untuk menemukan talenta unggul.',
-    solution: 'Mengembangkan sistem pencocokan berbasis kompetensi, papan pelacakan milestone tugas, dan showcase portofolio terpadu untuk evaluasi performa mahasiswa.',
+    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase (PostgreSQL)', 'Framer Motion', 'jsPDF', 'Resend API'],
+    description: 'Platform kolaborasi terpadu penghubung talenta universitas dengan tantangan riil industri melalui riset terapan, pencocokan kompetensi, milestone tracking terstruktur, dan generator portofolio PDF otomatis.',
+    overview: 'BridgeU hadir untuk memecahkan kesenjangan antara dunia akademik dan kebutuhan industri riil. Platform ini menyediakan wadah terstruktur bagi institusi dan perusahaan mitra untuk mempublikasikan proyek studi kasus nyata, sementara mahasiswa dapat melamar, berkolaborasi secara terpandu, dan mengonversi hasil proyek menjadi portofolio terverifikasi.',
+    problem: 'Mahasiswa kerap kesulitan memperoleh pengalaman proyek industri nyata yang terverifikasi, sementara mitra perusahaan memerlukan saluran terpercaya untuk menemukan talenta yang memiliki bukti kemampuan terukur.',
+    solution: 'Membangun platform ekosistem multi-peran (Mahasiswa, Perusahaan Mitra, Admin Kampus) yang dilengkapi papan pelacakan milestone progress proyek, sistem lamaran terpusat, notifikasi transaksional via Resend, dan generator rekam jejak portofolio resmi PDF via jsPDF.',
     features: [
       {
-        title: 'Pencocokan Kompetensi',
-        description: 'Algoritma penyaringan yang menyesuaikan keahlian mahasiswa dengan kualifikasi proyek mitra.'
+        title: 'Ekosistem Kolaborasi Multi-Role',
+        description: 'Perusahaan dapat mempublikasikan proyek riset/studi kasus nyata, dan mahasiswa dapat mengeksplorasi serta melamar kolaborasi sesuai minat dan keahlian.'
       },
       {
-        title: 'Showcase Portofolio Terverifikasi',
-        description: 'Katalog hasil riset dan produk digital yang dapat diakses langsung oleh mitra industri.'
+        title: 'Milestone Progress Tracker',
+        description: 'Papan manajemen progres terstruktur untuk memastikan pengerjaan proyek deliverables berjalan tepat waktu bersama bimbingan mentor industri.'
       },
       {
-        title: 'Milestone Tracking',
-        description: 'Manajemen alur kerja terstruktur bersama dosen pembimbing dan mentor profesional.'
+        title: 'Export Portofolio PDF & Notifikasi Resend',
+        description: 'Penerbitan dokumen rekam jejak portofolio dan resume resmi dalam format PDF dinamis via jsPDF serta notifikasi status lamaran otomatis melalui email.'
       }
     ],
     metrics: [
-      { label: 'Match Rate', value: '94%' },
-      { label: 'Partner Co.', value: '12 Industry' },
-      { label: 'Projects', value: '34 Active' }
+      { label: 'Multi-Role', value: 'Student & Industry' },
+      { label: 'Tracking', value: 'Milestone-Based' },
+      { label: 'Document', value: 'Auto-PDF Export' }
     ]
   },
   {
-    id: 'isfestumn',
-    title: 'ISFEST UMN',
-    subtitle: 'Information Systems Festival Portal',
-    category: 'Major Event Portal',
+    id: 'gate',
+    title: 'GATE',
+    subtitle: 'Freelance Marketplace & Social Impact Ecosystem with GatePay',
+    category: 'Marketplace & Social Impact',
     year: '2026',
-    role: 'Full-stack & UI Engineer',
-    team: 'Panitia ISFEST UMN',
-    // GANTI LINK DI BAWAH INI DENGAN LINK WEB ISFEST UMN KAMU:
-    liveUrl: 'https://isfestumn.my.id',
-    githubUrl: 'https://github.com/isfestival2026/Isfest',
-    previewImage: '/isfestumn-preview.jpg',
-    tags: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PostgreSQL'],
-    description: 'Website festival resmi HIMSI UMN yang menaungi registrasi multi-kompetisi nasional, seminar teknologi, dan portal administrasi panitia.',
-    overview: 'ISFEST UMN adalah portal utama festival tahunan program studi Sistem Informasi Universitas Multimedia Nusantara yang melayani ribuan peserta dari berbagai universitas di Indonesia.',
-    problem: 'Pendaftaran kompetisi berskala besar dengan berbagai cabang lomba memerlukan pengelolaan berkas tim, validasi pembayaran, dan distribusi informasi yang rapi tanpa kendala server down.',
-    solution: 'Membangun arsitektur serverless Next.js dengan database realtime Supabase untuk pendaftaran cepat, validasi dokumen otomatis, dan dashboard panitia LO.',
+    role: 'Full-stack Developer',
+    team: 'Julius Marselinus',
+    liveUrl: 'https://github.com/juliusmarselinus/Gate',
+    githubUrl: 'https://github.com/juliusmarselinus/Gate',
+    previewImage: '/gate-preview.jpg',
+    tags: ['Laravel 8', 'PHP', 'MySQL', 'Bootstrap 4', 'GatePay Engine', 'REST API', 'JavaScript'],
+    description: 'Platform terpadu penghubung freelancer, pemberi kerja (employer), dan yayasan sosial dengan sistem dompet virtual GatePay untuk transparansi pembayaran proyek dan penyaluran donasi sosial.',
+    overview: 'GATE (Your Gate to Work and Social Impact) menghubungkan dunia profesional kerja lepas dengan kontribusi sosial nyata. Platform ini memfasilitasi pemberi kerja (employer) dalam merekrut talenta freelancer terverifikasi, sekaligus mengintegrasikan sistem donasi otomatis ke berbagai yayasan sosial melalui modul dompet terintegrasi GatePay.',
+    problem: 'Kerap terjadi kendala transparansi pembayaran dalam sistem kerja lepas konvensional serta minimnya saluran terintegrasi bagi profesional dan perusahaan untuk menyalurkan dampak sosial (donasi) secara langsung dari hasil pengerjaan proyek.',
+    solution: 'Membangun platform multi-peran (Freelancer, Employer, Yayasan Sosial) berbasis Laravel dan MySQL yang didukung oleh sistem dompet digital GatePay untuk alur transaksi kontrak kerja yang aman (escrow), penarikan saldo, serta rekonsiliasi donasi sosial terpadu.',
     features: [
       {
-        title: 'Registrasi Tim Multi-Kompetisi',
-        description: 'Formulir dinamis untuk berbagai cabang lomba dengan upload berkas instan.'
+        title: 'Multi-Role Hub (Freelancer, Klien & Yayasan)',
+        description: 'Portal terdedikasi untuk freelancer melamar pekerjaan, employer mempublikasikan lowongan proyek, dan yayasan sosial mempublikasikan kampanye bantuan.'
       },
       {
-        title: 'Dashboard Administrasi Panitia',
-        description: 'Panel terpusat untuk verifikasi berkas peserta, status pembayaran, dan rekap data.'
+        title: 'GatePay Wallet & Escrow Engine',
+        description: 'Sistem dompet virtual untuk pencatatan transaksi kontrak kerja, penahanan dana aman, penarikan saldo freelancer, serta penyaluran donasi otomatis.'
       },
       {
-        title: 'Pusat Informasi & Jadwal Live',
-        description: 'Distribusi buku panduan (rulebook), pengumuman linimasa, dan leaderboard perlombaan.'
+        title: 'Project & Milestone Management',
+        description: 'Alur pemrosesan proyek mulai dari peninjauan proposal pelamar, pemantauan progress pekerjaan, konfirmasi penyelesaian (mark completed), hingga sistem ulasan dan rating.'
       }
     ],
     metrics: [
-      { label: 'Total Teams', value: '180+' },
-      { label: 'Universities', value: '32 Kampus' },
-      { label: 'Uptime', value: '99.9%' }
-    ]
-  },
-  {
-    id: 'dapurtwin',
-    title: 'Dapur Twin',
-    subtitle: 'Culinary E-Commerce & Order System',
-    category: 'E-Commerce Platform',
-    year: '2026',
-    role: 'Frontend & UI Developer',
-    team: 'Dapur Twin Dev Team',
-    // GANTI LINK DI BAWAH INI DENGAN LINK WEB DAPUR TWIN KAMU:
-    liveUrl: 'https://dapurtwin.vercel.app/',
-    githubUrl: 'https://github.com/juliusmarselinus/gtnich',
-    previewImage: '/dapurtwin-preview.jpg',
-    tags: ['React', 'Next.js', 'Tailwind CSS', 'JavaScript', 'WhatsApp API'],
-    description: 'Platform pemesanan kuliner dan katering modern dengan katalog menu interaktif, filter varian rasa, dan kalkulator pesanan otomatis.',
-    overview: 'Dapur Twin memodernisasi pemesanan menu katering rumahan menjadi platform digital yang ramah pengguna dengan alur transaksi instan tanpa mengharuskan registrasi rumit.',
-    problem: 'Pencatatan pesanan melalui pesan teks sering menimbulkan kesalahan porsi, salah pencatatan alamat, atau ketidakjelasan rekap biaya bagi pelanggan.',
-    solution: 'Menyediakan katalog visual responsif dengan kalkulator harga otomatis dan fitur export ringkasan pesanan langsung terformat ke WhatsApp pengelola.',
-    features: [
-      {
-        title: 'Katalog Menu Interaktif',
-        description: 'Eksplorasi hidangan dengan foto tajam, spesifikasi porsi, dan filter varian rasa.'
-      },
-      {
-        title: 'Order Builder & Kalkulator Porsi',
-        description: 'Penghitungan subtotal porsi dan biaya secara real-time tanpa perlu login akun.'
-      },
-      {
-        title: 'Format Rekap WhatsApp Otomatis',
-        description: 'Penyusunan format pesanan terstandarisasi untuk konfirmasi jadwal kirim yang cepat.'
-      }
-    ],
-    metrics: [
-      { label: 'Checkout', value: 'Instant' },
-      { label: 'Ordering Flow', value: 'Zero-Friction' },
-      { label: 'Device', value: 'Mobile-First' }
+      { label: 'Ecosystem', value: '3 Active Roles' },
+      { label: 'Payment', value: 'GatePay Wallet' },
+      { label: 'Impact', value: 'Social Donation' }
     ]
   }
 ]
 
 // =========================================================================
-// INFORMASI PROFIL & KONTAK
+// INFORMASI PROFIL & KONTAK - JULIUS MARSELINUS
 // =========================================================================
 export const SITE_INFO = {
-  name: 'Portfolio',
+  name: 'Julius Marselinus',
+  title: 'Software & Data Enthusiast',
+  badge: 'Julius Marselinus · Tech & Software Portfolio',
+  role: 'Software Development & Data Explorer',
+  bio: 'Fokus pada pengembangan aplikasi perangkat lunak yang fungsional, visualisasi data, serta eksplorasi machine learning, deep learning, dan pemodelan data terstruktur.',
+  email: 'juliusmarselinus@gmail.com',
+  github: 'https://github.com/juliusmarselinus',
+  linkedin: 'https://linkedin.com/in/juliusmarselinus',
   institution: 'Universitas Multimedia Nusantara',
   major: 'Sistem Informasi',
-  badge: 'Sistem Informasi · Universitas Multimedia Nusantara',
-  role: 'Web & Software Engineering',
-  bio: 'Fokus pada pengembangan aplikasi web modern dengan performa tinggi, arsitektur kode terstruktur, dan antarmuka interaktif yang bersih.',
-  email: 'student@student.umn.ac.id',
-  github: 'https://github.com',
-  linkedin: 'https://linkedin.com',
 }

@@ -17,43 +17,53 @@ export default function Home() {
       <AmbientBackground />
 
       {/* =========================================================================
-          HERO SECTION (Minimalist, Modern & Fast)
+          HERO SECTION (Bold Julius Marselinus Spotlight)
          ========================================================================= */}
       <section id="home" className="relative px-6 pt-36 pb-20 md:px-12 lg:px-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             {/* Left Headline */}
             <div className="lg:col-span-7">
-              {/* Status Badge */}
-              <div className="hero-line mb-6 inline-flex items-center gap-2.5 rounded-full border border-[#e5dfd3] bg-[#fffdfa]/95 px-4 py-1.5 text-xs font-semibold tracking-wide text-stone-700 shadow-2xs backdrop-blur-md">
+              {/* Badge */}
+              <div className="hero-line mb-6 inline-flex items-center gap-2.5 rounded-full border border-[#ded7ca] bg-[#fffdfa]/95 px-4 py-1.5 text-xs font-semibold tracking-wide text-stone-700 shadow-2xs backdrop-blur-md">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f4512a] opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f4512a]" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#254a87] opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#254a87]" />
                 </span>
-                <span>{STUDENT_INFO.badge}</span>
+                <span className="font-bold text-[#254a87]">JULIUS MARSELINUS</span>
+                <span className="text-stone-300">/</span>
+                <span className="text-stone-600">Software & Data Portfolio</span>
               </div>
 
-              {/* Headline with GSAP Split Text */}
-              <div className="space-y-1">
+              {/* Prominent Personal Headline */}
+              <div className="space-y-1.5">
+                <p className="hero-line text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.22em] text-[#254a87]">
+                  Hello, I am
+                </p>
                 <Split
                   as="h1"
                   mode="load"
-                  className="text-4xl font-black tracking-tight text-[#1c1917] sm:text-6xl lg:text-7xl leading-[1.08]"
+                  className="text-4xl font-black tracking-tight text-[#1c1917] sm:text-6xl lg:text-7xl leading-[1.05]"
                 >
-                  Rekayasa web &
+                  Julius
                 </Split>
                 <Split
                   as="h1"
                   mode="load"
-                  delay={0.12}
-                  className="text-4xl font-black tracking-tight text-[#254a87] sm:text-6xl lg:text-7xl leading-[1.08]"
+                  delay={0.08}
+                  className="text-4xl font-black tracking-tight text-[#254a87] sm:text-6xl lg:text-7xl leading-[1.05]"
                 >
-                  sistem digital.
+                  Marselinus.
                 </Split>
+                <div className="pt-2">
+                  <p className="hero-line text-lg font-bold text-stone-700 sm:text-2xl tracking-tight">
+                    Software Engineer & Data Explorer
+                  </p>
+                </div>
               </div>
 
               <p className="hero-line mt-6 max-w-xl text-base leading-relaxed text-stone-600 sm:text-lg">
-                Showcase proyek aplikasi web, arsitektur sistem informasi, dan antarmuka pengguna interaktif yang dibangun dengan standar rekayasa perangkat lunak modern.
+                Saya merancang dan mengembangkan sistem perangkat lunak yang fungsional, visualisasi data interaktif, serta aktif mendalami machine learning, deep learning, dan pemodelan data terstruktur untuk memecahkan persoalan nyata.
               </p>
 
               {/* Action Buttons */}
@@ -75,22 +85,24 @@ export default function Home() {
                     href="#capabilities"
                     className="inline-flex items-center gap-2 rounded-full border border-[#ddd6c8] bg-[#fffdfa] px-7 py-3.5 text-xs font-semibold tracking-wide text-stone-700 shadow-2xs transition-colors hover:border-[#cbc2b2] hover:bg-[#f6f2e8]"
                   >
-                    <span>Keahlian & Stack</span>
+                    <span>Keahlian & Eksplorasi Data</span>
                   </a>
                 </Magnetic>
               </div>
             </div>
 
-            {/* Right Side: Minimalist Metrics Panel */}
+            {/* Right Side: Profile & Capabilities Overview Panel */}
             <div className="lg:col-span-5 relative">
               <div className="rounded-3xl border border-[#e7e1d4] bg-[#fffdfa]/95 p-6 sm:p-7 shadow-[0_10px_35px_rgba(40,30,20,0.05)] backdrop-blur-xl">
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-[#eee7db] pb-4">
                   <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                    <span className="text-xs font-bold text-[#1c1917]">OVERVIEW SISTEM</span>
+                    <span className="h-2 w-2 rounded-full bg-[#254a87]" />
+                    <span className="text-xs font-bold text-[#1c1917]">PROFIL & KOMPETENSI</span>
                   </div>
-                  <span className="font-mono text-[10px] text-stone-400">ACTIVE</span>
+                  <span className="font-mono text-[10px] font-semibold text-[#254a87] bg-[#eaf0fa] border border-[#254a87]/20 px-2.5 py-0.5 rounded-full">
+                    ACTIVE SHOWCASE
+                  </span>
                 </div>
 
                 {/* Key Metrics */}
@@ -100,27 +112,58 @@ export default function Home() {
                       Showcase Proyek
                     </div>
                     <div className="mt-1 text-2xl font-black text-[#254a87]">
-                      0{projectsData.length} Apps
+                      0{projectsData.length} Platform
                     </div>
                     <div className="mt-0.5 text-[11px] text-stone-500">Live Website Aktif</div>
                   </div>
 
                   <div className="rounded-2xl border border-[#eae4d7] bg-[#f9f7f1] p-4">
                     <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
-                      Framework Utama
+                      Fokus Utama
                     </div>
-                    <div className="mt-1 text-2xl font-black text-[#1c1917]">Next.js 16</div>
-                    <div className="mt-0.5 text-[11px] text-stone-500">TypeScript & React</div>
+                    <div className="mt-1 text-2xl font-black text-[#1c1917]">Software</div>
+                    <div className="mt-0.5 text-[11px] text-stone-500">& Sistem Terstruktur</div>
+                  </div>
+
+                  <div className="rounded-2xl border border-[#eae4d7] bg-[#f9f7f1] p-4">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
+                      Eksplorasi AI
+                    </div>
+                    <div className="mt-1 text-2xl font-black text-[#f4512a]">ML & DL</div>
+                    <div className="mt-0.5 text-[11px] text-stone-500">Machine & Deep Learning</div>
+                  </div>
+
+                  <div className="rounded-2xl border border-[#eae4d7] bg-[#f9f7f1] p-4">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
+                      Analitik & Data
+                    </div>
+                    <div className="mt-1 text-2xl font-black text-[#0284c7]">Data Viz</div>
+                    <div className="mt-0.5 text-[11px] text-stone-500">& Data Modeling</div>
                   </div>
                 </div>
 
                 {/* Tags row */}
                 <div className="mt-4 rounded-2xl border border-[#eae4d7] bg-[#f9f7f1] p-4">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-stone-400 mb-2">
-                    Teknologi & Dependensi
+                    Teknologi & Ranah Eksplorasi
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    {['Next.js 16', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase', 'REST API', 'GSAP'].map((t) => (
+                    {[
+                      'Next.js 16',
+                      'TypeScript',
+                      'Tailwind CSS',
+                      'Laravel 8',
+                      'PHP',
+                      'MySQL',
+                      'Supabase',
+                      'PostgreSQL',
+                      'Data Visualization',
+                      'Recharts',
+                      'Three.js',
+                      'Machine Learning',
+                      'Deep Learning',
+                      'Data Modeling',
+                    ].map((t) => (
                       <span
                         key={t}
                         className="rounded-md border border-[#ded7c9] bg-[#fffdfa] px-2.5 py-1 text-[11px] font-mono text-stone-700 shadow-2xs"
@@ -133,7 +176,7 @@ export default function Home() {
 
                 {/* Quick Info bar */}
                 <div className="mt-4 flex items-center justify-between pt-3 border-t border-[#eee7db] text-[11px] text-stone-500">
-                  <span>Universitas Multimedia Nusantara</span>
+                  <span className="font-semibold text-stone-700">Julius Marselinus</span>
                   <span className="font-mono text-[#254a87] font-semibold">2026 Ready</span>
                 </div>
               </div>
@@ -143,29 +186,29 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SELECTED PROJECTS SHOWCASE
+          SELECTED PROJECTS SHOWCASE (2 CARDS PER ROW, ELEGANT & WIDE)
          ========================================================================= */}
       <section id="projects" className="relative px-6 py-24 md:px-12 lg:px-20">
         <div className="mx-auto max-w-6xl">
           {/* Section Header */}
           <div className="mb-14">
             <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-3">
-              KARYA & SHOWCASE
+              KARYA & PROYEK NYATA
             </span>
             <Split as="h2" className="text-3xl font-extrabold text-[#1c1917] sm:text-5xl">
-              Proyek Rekayasa Web
+              Showcase Proyek & Sistem Digital
             </Split>
             <p className="mt-3 text-sm text-stone-600 max-w-2xl leading-relaxed">
-              Daftar proyek di bawah ini terhubung langsung ke live website aktif. Kamu dapat membuka website secara langsung dengan tombol <strong>Kunjungi Web ↗</strong> atau membaca telaah arsitekturnya lewat <strong>Studi Kasus →</strong>.
+              Daftar proyek skala penuh di bawah ini dibangun berdasarkan kebutuhan riil dan telah ter-deploy aktif. Setiap proyek mengintegrasikan logika bisnis kompleks, pengelolaan database terstruktur, dan antarmuka interaktif. Kamu dapat membuka website proyek secara langsung melalui tombol <strong>Kunjungi Web</strong> atau mempelajari telaah teknisnya di menu <strong>Detail Studi Kasus</strong>.
             </p>
           </div>
 
-          {/* Project Grid */}
-          <div className="grid gap-10 md:grid-cols-2">
+          {/* Project Grid: Exactly 2 Wide Cards Per Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {projectsData.map((project, idx) => (
               <div
                 key={project.slug}
-                className="reveal group relative flex flex-col justify-between rounded-3xl border border-[#e6e0d4] bg-[#fffdfa] p-6 sm:p-7 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-[#d6cebf]"
+                className="reveal group relative flex flex-col justify-between rounded-[2rem] border border-[#e6e0d4] bg-[#fffdfa] p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-2xl hover:border-[#254a87]/30 hover:-translate-y-1"
               >
                 <div>
                   {/* Top: Minimalist Browser Mockup */}
@@ -174,8 +217,8 @@ export default function Home() {
                   </TLink>
 
                   {/* Metadata Bar */}
-                  <div className="mt-5 flex items-center justify-between border-b border-[#eee8dc] pb-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3 py-0.5 rounded-full">
+                  <div className="mt-6 flex items-center justify-between border-b border-[#eee8dc] pb-3.5">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full">
                       {project.category}
                     </span>
                     <span className="font-mono text-xs text-stone-400">
@@ -184,38 +227,45 @@ export default function Home() {
                   </div>
 
                   {/* Title & Description */}
-                  <div className="mt-3.5">
+                  <div className="mt-4">
                     <TLink href={`/projects/${project.slug}`}>
-                      <h3 className="text-xl font-bold tracking-tight text-[#1c1917] group-hover:text-[#254a87] transition-colors leading-snug">
+                      <h3 className="text-2xl font-bold tracking-tight text-[#1c1917] group-hover:text-[#254a87] transition-colors leading-snug">
                         {project.title}
                       </h3>
                     </TLink>
-                    <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                    <p className="mt-2.5 text-sm leading-relaxed text-stone-600 line-clamp-3">
                       {project.desc}
                     </p>
                   </div>
 
                   {/* Tech stack tags */}
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {project.stack.map((t) => (
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {project.stack.slice(0, 5).map((t) => (
                       <span
                         key={t}
-                        className="rounded-md bg-[#f4efe5] px-2 py-0.5 text-[10px] font-mono text-stone-600"
+                        className="rounded-lg bg-[#f4efe5] px-2.5 py-1 text-[11px] font-mono text-stone-700"
                       >
                         {t}
                       </span>
                     ))}
+                    {project.stack.length > 5 && (
+                      <span className="rounded-lg bg-[#eaf0fa] px-2 py-1 text-[11px] font-mono text-[#254a87] font-semibold">
+                        +{project.stack.length - 5}
+                      </span>
+                    )}
                   </div>
                 </div>
 
                 {/* Footer with DUAL ACTIONS: Kunjungi Web & Studi Kasus */}
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-[#eee8dc] pt-5">
-                  <div>
-                    <div className="text-xs font-bold text-[#1c1917]">{project.team}</div>
-                    <div className="text-[10px] text-stone-400">{project.author}</div>
+                <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-[#eee8dc] pt-5">
+                  <div className="max-w-[220px] sm:max-w-[260px]">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">Tim Pengembang</div>
+                    <div className="text-xs font-bold text-[#1c1917] truncate" title={project.team}>
+                      {project.team}
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2.5">
                     {/* Direct Live Website Link */}
                     <Magnetic strength={0.25}>
                       <a
@@ -239,7 +289,9 @@ export default function Home() {
                         className="inline-flex items-center gap-1.5 rounded-xl border border-[#ded7ca] bg-[#fffdfa] px-3.5 py-2 text-xs font-semibold text-stone-700 shadow-2xs transition-colors hover:border-[#cbc3b2] hover:bg-[#f7f3ea]"
                       >
                         <span>Detail</span>
-                        <span>→</span>
+                        <svg className="h-3.5 w-3.5 text-stone-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                        </svg>
                       </TLink>
                     </Magnetic>
                   </div>
@@ -251,106 +303,148 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          CAPABILITIES BENTO GRID
+          CAPABILITIES & EXPLORATIONS (Balanced: Software, Data Viz, ML, Data Modeling)
          ========================================================================= */}
       <section id="capabilities" className="relative px-6 py-24 md:px-12 lg:px-20 bg-[#f0ece1]/70 border-y border-[#e6dfd2]">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14">
             <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-3">
-              KOMPETENSI TEKNIS
+              KOMPETENSI & EKSPLORASI
             </span>
             <Split as="h2" className="text-3xl font-extrabold text-[#1c1917] sm:text-5xl">
-              Arsitektur & Keahlian Rekayasa
+              Keahlian Rekayasa & Eksplorasi Data
             </Split>
             <p className="mt-3 text-sm text-stone-600 max-w-2xl leading-relaxed">
-              Prinsip perancangan dan keahlian teknis yang diterapkan dalam setiap pengembangan sistem web.
+              Menghubungkan rekayasa perangkat lunak dengan analisis data dan machine learning untuk membangun solusi teknologi yang terstruktur, fungsional, dan terukur.
             </p>
           </div>
 
-          {/* Bento Grid */}
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#254a87] mb-5 font-mono text-sm font-bold">
-                01
+          {/* Bento Grid: 4 Pillars */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#254a87] mb-5 font-mono text-sm font-bold">
+                  01
+                </div>
+                <h3 className="text-lg font-bold text-[#1c1917]">Software & Systems</h3>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                  Pengembangan aplikasi modern end-to-end berbasis Next.js App Router, TypeScript, React, Laravel, dan Tailwind CSS dengan arsitektur modular, efisiensi rendering, dan antarmuka responsif.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#1c1917]">Frontend Architecture</h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                Penerapan Next.js App Router, Server Components untuk efisiensi render, serta tata letak responsif berbasis Tailwind CSS yang terstruktur.
-              </p>
+              <div className="mt-5 pt-4 border-t border-[#eee7db] text-[11px] font-mono text-[#254a87] font-semibold">
+                Next.js · TypeScript · Laravel · REST API
+              </div>
             </div>
 
-            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#254a87] mb-5 font-mono text-sm font-bold">
-                02
+            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#0284c7] mb-5 font-mono text-sm font-bold">
+                  02
+                </div>
+                <h3 className="text-lg font-bold text-[#1c1917]">Data Visualization</h3>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                  Merancang dashboard analitik dan visualisasi metrik bisnis interaktif menggunakan Recharts dan komponen chart visual untuk menerjemahkan data mentah menjadi insight operasional yang bernilai.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#1c1917]">Backend & Database</h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                Perancangan skema relasional PostgreSQL, integrasi database realtime Supabase, sistem otentikasi aman, dan komunikasi RESTful API.
-              </p>
+              <div className="mt-5 pt-4 border-t border-[#eee7db] text-[11px] font-mono text-[#0284c7] font-semibold">
+                Recharts · Dashboard Analytics
+              </div>
             </div>
 
-            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#254a87] mb-5 font-mono text-sm font-bold">
-                03
+            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#f4512a] mb-5 font-mono text-sm font-bold">
+                  03
+                </div>
+                <h3 className="text-lg font-bold text-[#1c1917]">ML & Deep Learning</h3>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                  Aktif mempelajari dan mengeksplorasi pemodelan machine learning, konsep deep learning, serta implementasi praktis integrasi kecerdasan buatan seperti computer vision dan OCR digitalisasi nota.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#1c1917]">Code Quality & Standards</h3>
-              <p className="mt-2 text-sm leading-relaxed text-stone-600">
-                Penerapan strict typing TypeScript, struktur kode modular yang mudah diuji, manajemen versi Git yang rapi, dan performa optimal.
-              </p>
+              <div className="mt-5 pt-4 border-t border-[#eee7db] text-[11px] font-mono text-[#f4512a] font-semibold">
+                Machine Learning · Deep Learning · AI OCR
+              </div>
+            </div>
+
+            <div className="reveal rounded-3xl border border-[#e6dfd3] bg-[#fffdfa] p-7 shadow-sm transition-all hover:shadow-md flex flex-col justify-between">
+              <div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#eaf0fa] text-[#1c1917] mb-5 font-mono text-sm font-bold">
+                  04
+                </div>
+                <h3 className="text-lg font-bold text-[#1c1917]">Data Modeling & DB</h3>
+                <p className="mt-2 text-sm leading-relaxed text-stone-600">
+                  Perancangan skema data relasional PostgreSQL & MySQL, pemetaan relasi entitas, normalisasi tabel, penegakan integritas data, dan optimasi query untuk integritas alur transaksi.
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-[#eee7db] text-[11px] font-mono text-[#1c1917] font-semibold">
+                PostgreSQL · MySQL · Supabase
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* =========================================================================
-          ABOUT & ACADEMIC BACKGROUND
+          ABOUT SECTION (Spotlight: Julius Marselinus)
          ========================================================================= */}
       <section id="about" className="relative px-6 py-24 md:px-12 lg:px-20 bg-[#f1eee5] border-y border-[#e6dfd2]">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 md:grid-cols-12 md:items-center">
+            {/* Story & Background */}
             <div className="md:col-span-6">
               <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-3">
-                LATAR BELAKANG
+                TENTANG SAYA
               </span>
               <Split as="h2" className="text-3xl font-extrabold text-[#1c1917] sm:text-4xl">
-                Sistem Informasi UMN
+                Julius Marselinus
               </Split>
               <p className="reveal mt-5 text-base leading-relaxed text-stone-600">
-                Fokus studi ditekankan pada analisis kebutuhan sistem, rekayasa perangkat lunak web, dan implementasi teknologi informasi untuk memecahkan persoalan operasional nyata.
+                Saya adalah seorang software engineer dan tech enthusiast yang senang memecahkan tantangan nyata melalui rekayasa sistem perangkat lunak yang andal dan eksplorasi data yang mendalam.
               </p>
               <p className="reveal mt-3 text-base leading-relaxed text-stone-600">
-                Seluruh proyek yang tercantum dibangun dengan komitmen terhadap keterbacaan kode, kecepatan muat halaman, dan keandalan sistem multi-perangkat.
+                Portofolio proyek yang saya bangun mencakup beragam domain fungsional: dari otomatisasi operasional dapur & POS UMKM di <strong>Dapur Twin</strong>, platform event festival berskala nasional dengan 3D Three.js di <strong>ISFEST UMN</strong>, ekosistem kolaborasi riset industri di <strong>BridgeU</strong>, hingga marketplace kerja lepas bertenaga dompet virtual di <strong>GATE</strong>.
+              </p>
+              <p className="reveal mt-3 text-base leading-relaxed text-stone-600">
+                Saya selalu antusias mendalami arsitektur kode modern, visualisasi analitik data, serta teknik machine learning dan deep learning untuk terus menghasilkan solusi perangkat lunak yang berdampak dan berkinerja tinggi.
               </p>
             </div>
 
+            {/* Profile Card */}
             <div className="md:col-span-6">
               <div className="reveal rounded-3xl border border-[#e5ded1] bg-[#fffdfa] p-8 shadow-sm">
                 <div className="flex items-center gap-3 border-b border-[#eee8dc] pb-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#254a87] text-white font-mono font-bold text-sm">
-                    SI
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#254a87] text-white font-mono font-bold text-base shadow-sm">
+                    JM
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-[#1c1917]">{STUDENT_INFO.institution}</h3>
-                    <p className="text-xs text-stone-500">{STUDENT_INFO.major}</p>
+                    <h3 className="text-base font-bold text-[#1c1917]">Julius Marselinus</h3>
+                    <p className="text-xs text-stone-500 font-medium">Software Development & Data Explorer</p>
                   </div>
                 </div>
 
                 <div className="mt-5 space-y-3.5 text-xs text-stone-600">
                   <div className="flex justify-between py-1 border-b border-[#f2ede3]">
-                    <span className="text-stone-400">Program Studi</span>
-                    <span className="font-semibold text-[#1c1917]">Sistem Informasi</span>
+                    <span className="text-stone-400">Fokus Utama</span>
+                    <span className="font-semibold text-[#1c1917]">Software Engineering & Systems</span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-[#f2ede3]">
-                    <span className="text-stone-400">Bidang Kajian</span>
-                    <span className="font-semibold text-[#1c1917]">Web Engineering & Software Systems</span>
+                    <span className="text-stone-400">Eksplorasi Data</span>
+                    <span className="font-semibold text-[#0284c7]">Data Visualization & Data Modeling</span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-[#f2ede3]">
-                    <span className="text-stone-400">Core Technologies</span>
-                    <span className="font-semibold text-[#254a87]">Next.js, TypeScript, PostgreSQL</span>
+                    <span className="text-stone-400">Kecerdasan Buatan</span>
+                    <span className="font-semibold text-[#f4512a]">Machine Learning & Deep Learning</span>
+                  </div>
+                  <div className="flex justify-between py-1 border-b border-[#f2ede3]">
+                    <span className="text-stone-400">Core Tools</span>
+                    <span className="font-semibold text-[#254a87]">Next.js, TypeScript, PostgreSQL, Laravel, MySQL</span>
                   </div>
                   <div className="flex justify-between py-1">
-                    <span className="text-stone-400">Tahun Akademik</span>
-                    <span className="font-semibold text-[#1c1917]">2026</span>
+                    <span className="text-stone-400">Status</span>
+                    <span className="inline-flex items-center gap-1.5 font-semibold text-[#254a87] bg-[#eaf0fa] px-2.5 py-0.5 rounded-full border border-[#254a87]/20">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#254a87]" />
+                      Active Tech Builder & Explorer
+                    </span>
                   </div>
                 </div>
               </div>
@@ -365,12 +459,12 @@ export default function Home() {
       <footer className="px-6 py-12 md:px-12 lg:px-20 bg-[#ede9de] border-t border-[#e2dcd0]">
         <div className="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-stone-600">
           <div className="flex items-center gap-3">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#eaf0fa] text-xs font-mono font-bold text-[#254a87]">
-              SI
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eaf0fa] text-xs font-mono font-bold text-[#254a87]">
+              JM
             </div>
             <div>
-              <p className="font-bold text-[#1c1917]">Portofolio Sistem Informasi UMN</p>
-              <p className="text-[11px] text-stone-400">Dibuat menggunakan Next.js & Tailwind CSS</p>
+              <p className="font-bold text-[#1c1917]">Julius Marselinus · Portfolio</p>
+              <p className="text-[11px] text-stone-400">Software Engineering, Data Visualization & Machine Learning</p>
             </div>
           </div>
 
