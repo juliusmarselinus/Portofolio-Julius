@@ -6,6 +6,7 @@ import { TLink } from '@/components/Transition'
 import ProjectMockup from '@/components/ProjectMockup'
 import AmbientBackground from '@/components/AmbientBackground'
 import Magnetic from '@/components/Magnetic'
+import Image from 'next/image'
 import { projectsData, STUDENT_INFO, ProjectData } from '@/lib/data'
 
 export default function ProjectView({ slug }: { slug: string }) {
@@ -232,6 +233,62 @@ export default function ProjectView({ slug }: { slug: string }) {
               ))}
             </div>
           </div>
+
+          {/* Section 3.5: Penghargaan & Sertifikat (Conditionally shown) */}
+          {project.certificateImage && (
+            <div className="rounded-3xl border border-[#e6dfd2] bg-[#fffdfa] p-8 sm:p-10 shadow-sm">
+              <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#f4512a] bg-[#fef1ee] px-3.5 py-1 rounded-full mb-2 border border-[#f4512a]/20">
+                PENGHARGAAN
+              </span>
+              <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl mb-2">
+                Sertifikat & Prestasi
+              </h2>
+              <p className="text-sm text-stone-500 mb-6">
+                Penghargaan yang diraih dalam kompetisi teknologi nasional terkait proyek ini.
+              </p>
+              <div className="flex flex-col sm:flex-row items-center gap-8">
+                {/* Certificate Image */}
+                <div className="w-full sm:w-auto sm:flex-shrink-0 max-w-sm">
+                  <div className="relative overflow-hidden rounded-2xl border border-[#e6dfd2] shadow-md group">
+                    <Image
+                      src={project.certificateImage}
+                      alt="Sertifikat Penghargaan Julius Marselinus"
+                      width={800}
+                      height={570}
+                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+                {/* Certificate Detail */}
+                <div className="flex-1">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#fef1ee] border border-[#f4512a]/20 px-3.5 py-1.5 mb-4">
+                    <span className="h-2 w-2 rounded-full bg-[#f4512a]" />
+                    <span className="text-xs font-bold text-[#f4512a] uppercase tracking-wider">Juara 2</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-[#1c1917] leading-snug mb-2">
+                    SOFTWARE DEVELOPMENT COMPETITION
+                  </h3>
+                  <p className="text-sm text-stone-600 leading-relaxed mb-4">
+                    INSPIRE 1.0 2026 — Innovating Beyond Code: Technology for Meaningful Impact
+                  </p>
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-center gap-2 text-stone-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-stone-300 shrink-0" />
+                      <span>Universitas Bunda Mulia · The UBM Lecture Hall</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-stone-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-stone-300 shrink-0" />
+                      <span>26 Agustus 2026</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-stone-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-stone-300 shrink-0" />
+                      <span>Diverifikasi oleh SPMI Universitas Bunda Mulia</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Section 4: Spesifikasi Teknis */}
           <div className="rounded-3xl border border-[#e6ded2] bg-[#fffdfa] p-8 sm:p-10 shadow-sm">

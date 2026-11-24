@@ -21,6 +21,7 @@ export interface ProjectItem {
   liveUrl: string         // Link Live URL aktif atau demo repo
   githubUrl?: string      // Link repository GitHub
   previewImage?: string   // Path screenshot di folder public
+  certificateImage?: string // Path sertifikat penghargaan di folder public
   tags: string[]          // Tech stack & tools
   description: string     // Ringkasan singkat kartu depan
   overview: string        // Penjelasan komprehensif studi kasus
@@ -122,6 +123,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     team: 'Julius Marselinus, Kevin Sakia, Audrey Imanuella',
     liveUrl: 'https://bridgeu.vercel.app/',
     githubUrl: 'https://github.com/juliusmarselinus/BridgeU',
+    certificateImage: '/bridgeu-certificate.png',
     tags: ['Next.js 16', 'React 19', 'TypeScript', 'Supabase (PostgreSQL)', 'Framer Motion', 'jsPDF', 'Resend API'],
     description: 'Platform kolaborasi terpadu penghubung talenta universitas dengan tantangan riil industri melalui riset terapan, pencocokan kompetensi, milestone tracking terstruktur, dan generator portofolio PDF otomatis.',
     overview: 'BridgeU hadir untuk memecahkan kesenjangan antara dunia akademik dan kebutuhan industri riil. Platform ini menyediakan wadah terstruktur bagi institusi dan perusahaan mitra untuk mempublikasikan proyek studi kasus nyata, sementara mahasiswa dapat melamar, berkolaborasi secara terpandu, dan mengonversi hasil proyek menjadi portofolio terverifikasi.',

@@ -26,6 +26,7 @@ export interface ProjectData {
   techHighlights: string[]
   metrics?: { label: string; value: string }[]
   previewImage?: string
+  certificateImage?: string
 }
 
 const colorMap: Record<string, { accent: string; bg: string }> = {
@@ -60,6 +61,7 @@ export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
     techHighlights: p.tags.map((t) => `Implementasi arsitektur sistem berbasis ${t}`),
     metrics: p.metrics,
     previewImage: p.previewImage,
+    certificateImage: p.certificateImage,
   }
 })
 

@@ -1,6 +1,8 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import Shell from '@/components/Shell'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: 'Julius Marselinus | Software & Data Portfolio',
@@ -12,6 +14,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id" className="scroll-smooth bg-[#f6f4ee]">
       <body className="bg-[#f6f4ee] text-[#1c1917] antialiased selection:bg-[#254a87] selection:text-white min-h-screen">
         <Shell>{children}</Shell>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
