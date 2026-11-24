@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
 import ProjectView from '@/components/ProjectView'
 import { projects } from '@/lib/data'
 
@@ -24,7 +25,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function ProjectPage({
+async function ProjectContent({
   params,
 }: {
   params: Promise<{ slug: string }>
@@ -36,4 +37,22 @@ export default async function ProjectPage({
   }
 
   return <ProjectView slug={slug} />
+}
+
+export default function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#f6f4ee] flex items-center justify-center">
+          <div className="h-6 w-6 rounded-full border-2 border-[#254a87] border-t-transparent animate-spin" />
+        </div>
+      }
+    >
+      <ProjectContent params={params} />
+    </Suspense>
+  )
 }

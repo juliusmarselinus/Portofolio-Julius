@@ -11,6 +11,9 @@ export interface ProjectData {
   author: string
   team: string
   role: string
+  framework: string
+  language: string
+  database: string
   year: string
   desc: string
   liveUrl: string
@@ -47,6 +50,9 @@ export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
     author: 'Julius Marselinus',
     team: p.team,
     role: p.role,
+    framework: p.framework,
+    language: p.language,
+    database: p.database,
     year: p.year,
     desc: p.description,
     liveUrl: p.liveUrl,

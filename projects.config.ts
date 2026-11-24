@@ -18,6 +18,9 @@ export interface ProjectItem {
   year: string            // Tahun pembuatan
   role: string            // Peran pengembang
   team: string            // Tim / Pengembang
+  framework: string       // Framework utama
+  language: string        // Bahasa pemrograman
+  database: string        // Database & storage engine
   liveUrl: string         // Link Live URL aktif atau demo repo
   githubUrl?: string      // Link repository GitHub
   previewImage?: string   // Path screenshot di folder public
@@ -50,6 +53,9 @@ export const PROJECTS_LIST: ProjectItem[] = [
     year: '2026',
     role: 'Full-stack Developer',
     team: 'Julius Marselinus, Kevin Sakia, Audrey Imanuella',
+    framework: 'Next.js 16 · React 19',
+    language: 'TypeScript',
+    database: 'Supabase (PostgreSQL)',
     liveUrl: 'https://dapurtwin.vercel.app/',
     githubUrl: 'https://github.com/juliusmarselinus/gtnich',
     previewImage: '/dapurtwin-preview.jpg',
@@ -86,6 +92,9 @@ export const PROJECTS_LIST: ProjectItem[] = [
     year: '2026',
     role: 'Full-stack & 3D Web Engineer',
     team: 'Julius Marselinus, Kevin Sakia',
+    framework: 'Next.js 16 · Three.js',
+    language: 'TypeScript',
+    database: 'Supabase & AWS S3',
     liveUrl: 'https://isfestumn.my.id',
     githubUrl: 'https://github.com/isfestival2026/Isfest',
     previewImage: '/isfestumn-preview.jpg',
@@ -122,6 +131,9 @@ export const PROJECTS_LIST: ProjectItem[] = [
     year: '2026',
     role: 'Full-stack & Frontend Engineer',
     team: 'Julius Marselinus, Kevin Sakia, Audrey Imanuella',
+    framework: 'Next.js 16 · React 19',
+    language: 'TypeScript',
+    database: 'Supabase (PostgreSQL)',
     liveUrl: 'https://bridgeu.vercel.app/',
     githubUrl: 'https://github.com/juliusmarselinus/BridgeU',
     previewImage: '/bridgeu-preview.png',
@@ -160,6 +172,9 @@ export const PROJECTS_LIST: ProjectItem[] = [
     year: '2026',
     role: 'Full-stack Developer',
     team: 'Julius Marselinus',
+    framework: 'Laravel 8 · Bootstrap 4',
+    language: 'PHP & JavaScript',
+    database: 'MySQL',
     liveUrl: 'https://github.com/juliusmarselinus/Gate',
     githubUrl: 'https://github.com/juliusmarselinus/Gate',
     previewImage: '/gate-preview.jpg',
