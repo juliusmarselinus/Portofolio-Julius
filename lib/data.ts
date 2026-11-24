@@ -27,6 +27,7 @@ export interface ProjectData {
   metrics?: { label: string; value: string }[]
   previewImage?: string
   certificateImage?: string
+  galleryImages?: string[]
 }
 
 const colorMap: Record<string, { accent: string; bg: string }> = {
@@ -62,6 +63,7 @@ export const projectsData: ProjectData[] = PROJECTS_LIST.map((p) => {
     metrics: p.metrics,
     previewImage: p.previewImage,
     certificateImage: p.certificateImage,
+    galleryImages: p.galleryImages,
   }
 })
 

@@ -163,7 +163,36 @@ export default function ProjectView({ slug }: { slug: string }) {
             </div>
           </div>
 
+          {/* Section 1.5: Gallery Tampilan Nyata (Conditionally shown) */}
+          {project.galleryImages && project.galleryImages.length > 0 && (
+            <div>
+              <div className="mb-5">
+                <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#0284c7] bg-[#e0f2fe] px-3.5 py-1 rounded-full mb-2 border border-[#0284c7]/20">
+                  TAMPILAN NYATA
+                </span>
+                <h2 className="text-2xl font-extrabold text-[#1c1917] sm:text-3xl">
+                  Screenshot Fitur Aplikasi
+                </h2>
+                <p className="mt-1 text-sm text-stone-500">Tampilan antarmuka sistem yang berjalan di production.</p>
+              </div>
+              <div className={`grid gap-4 ${project.galleryImages.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
+                {project.galleryImages.map((img, idx) => (
+                  <div key={idx} className="group relative overflow-hidden rounded-2xl border border-[#e6dfd2] shadow-sm">
+                    <Image
+                      src={img}
+                      alt={`${project.shortTitle} screenshot ${idx + 1}`}
+                      width={1200}
+                      height={750}
+                      className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Section 2: Problem & Solution Comparison Cards */}
+
           <div>
             <div className="mb-6">
               <span className="inline-block text-xs font-bold uppercase tracking-wider text-[#254a87] bg-[#eaf0fa] px-3.5 py-1 rounded-full mb-2">
